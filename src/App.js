@@ -13,7 +13,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      stocks: ['NVDA', 'TSLA', 'SPOT', 'FB', 'AAPL'],
+      stocks: ['NVDA', 'TSLA', 'SPOT', 'CSCO', 'AAPL'],
       stocksData: {},
     }
   }
@@ -66,4 +66,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

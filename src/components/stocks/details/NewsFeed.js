@@ -7,9 +7,10 @@ const NewsFeed = ({ article }) => {
 
   return (
     <article className='news-item'>
-      <a className='headline' href={url}>{headline} <span className='date'>{timeFromNow}</span></a>
+      <a className='headline' href={url}>{headline} <h3 className='date'>{timeFromNow}</h3></a>
       <h3 className='source'>Source: {source}</h3>
-      <p className='summary'>{summary}</p>
+      {!summary.includes('No summary available.') && <p className='summary'>{summary}</p>}
+      
     </article>
 
   )

@@ -13,7 +13,7 @@ const StockItem = ({ symbol, stockData}) => {
             <p>{stockData.quote.companyName}</p>
             <p>${stockData.quote.latestPrice}</p>
             <p>{stockData.quote.primaryExchange}</p>
-            <p>{stockData.quote.changePercent * 100}</p>
+            <p>{(stockData.quote.changePercent * 100).toFixed(2)}%</p>
           </div>
           :
           <div className='stock-item-data'>

@@ -9,8 +9,11 @@ class StockInfo extends Component {
     const { stockData } = this.props
 
     if (stockData) {
-      return stockData.chart.slice(-7).reverse.map( (data, idx) => {
-        return <History key={idx} data={data} />
+      return stockData.chart.slice(-10).reverse().map( (data, idx) => {
+        return <History 
+                  key={idx} 
+                  data={data} 
+                />
       })
     }
 
@@ -20,7 +23,10 @@ class StockInfo extends Component {
     const { stockData } = this.props
     if (stockData) {
       return stockData.news.map( (article, idx) => {
-        return <NewsFeed key={idx} article={article} />
+        return <NewsFeed 
+                  key={idx} 
+                  article={article} 
+                />
       })
     }
   }
@@ -60,7 +66,7 @@ class StockInfo extends Component {
         <div className='stock-info-data'>
           
           <div className='history'>
-            <h3><i className="far fa-calendar-alt"></i> 7-Day Chart</h3>
+            <h3><i className="far fa-calendar-alt"></i> 10-Day Chart</h3>
             {this.fetchHistory()}
           </div>
 
@@ -74,7 +80,7 @@ class StockInfo extends Component {
           <h3>Loading...</h3>
         </div>
         }
-        
+
         <Link to='/'>
           <span>Back</span>
         </Link>

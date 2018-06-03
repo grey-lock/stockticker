@@ -9,8 +9,8 @@ const History = ({ data }) => {
       <h3 className='closing-price'>${close.toFixed(2)}</h3>
 
       <div className='prices'>
-        <p style={{color: 'green'}}><i className="fas fa-caret-up"></i>{high.toFixed(2)}</p>
-        <p style={{color: 'red'}}><i className="fas fa-caret-down"></i>{low.toFixed(2)}</p>
+        <p style={{color: 'green'}}><i className="fas fa-caret-up"></i>High: {high.toFixed(2)}</p>
+        <p style={{color: 'red'}}><i className="fas fa-caret-down"></i>Low: {low.toFixed(2)}</p>
       </div>
     </div>
   )

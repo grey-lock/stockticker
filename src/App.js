@@ -13,7 +13,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      stocks: ['GOOG', 'TSLA', 'SPOT', 'FB', 'AAPL'],
+      stocks: ['NVDA', 'TSLA', 'SPOT', 'FB', 'AAPL'],
       stocksData: {},
     }
   }

@@ -10,13 +10,15 @@ class StockList extends Component {
         return <StockItem 
                   key={idx} 
                   symbol={symbol} 
-                  stockData={this.props.stocksData[symbol]} 
+                  stockData={this.props.stocksData[symbol]}
+                  updateStocks={this.props.updateStocks} 
                 />
       }
       else {
         return <StockForm 
                   key={idx} 
                   index={idx}
+                  updateStocks={this.props.updateStocks}
                 />
       }
     })

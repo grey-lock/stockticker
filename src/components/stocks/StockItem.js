@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 const StockItem = ({ symbol, stockData, idx, updateStocks }) => {
   return (
     <div className='stock-item-wrapper'>
-      <div className='delete-button' onClick={() => updateStocks(idx, null)}>
 
+      <div className='delete-button' onClick={() => updateStocks(idx, null)}>
         <i className="fa fa-trash"></i>
       </div>
+
       <Link to={`/${symbol}`}>
       <div className='stock-item'>
-        <h2>{symbol}</h2>
+        <h3>{symbol}</h3>
         { stockData ?
           <div className='stock-item-data'>
             <img src={stockData.logo.url} alt='stock-logo'/>

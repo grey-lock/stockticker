@@ -33,13 +33,14 @@ class StockInfo extends Component {
 
   render() {
     const { symbol, stockData } = this.props
+
     if (stockData) {
       var { companyName, latestPrice, change, changePercent } = stockData.quote
       var { logo } = stockData
     }
 
     return(
-      <div className='stock-info'>
+      <div className='stock-details'>
         <div className='stock-header'>
           {stockData && <div className='stock-logo' style={{backgroundImage: `url(${logo.url})`}}></div>}
 
@@ -55,7 +56,7 @@ class StockInfo extends Component {
               <p style={{color: change === 0 ? 'green' : change > 0 ? 'green' : 'red'}}>
                 <span>{change.toFixed(2)} </span>
                 <span>
-                  {change > 0 ? <i className="fas fa-caret-up"></i> : <i className="fas fa-caret-down"></i>}
+                  {change > 0 ? <i className="fa fa-chevron-up"></i> : <i className="fa fa-chevron-down"></i>}
                   {(Math.abs(changePercent) * 100).toFixed(2)}%
                 </span>
               </p>
@@ -63,15 +64,15 @@ class StockInfo extends Component {
         </div>
 
         {stockData ? 
-        <div className='stock-info-data'>
+        <div className='stock-details-data'>
           
           <div className='history'>
-            <h3><i className="far fa-calendar-alt"></i> 5-Day Chart</h3>
+            <h3><i className="fa fa-calendar"></i> 5-Day Chart</h3>
             {this.fetchHistory()}
           </div>
 
           <div className='news'>
-            <h3><i className="far fa-newspaper"></i> {companyName} News Stories</h3>
+            <h3><i className="fa fa-newspaper-o"></i> {companyName} News Stories</h3>
             {this.fetchNewsFeed()}
           </div>
         </div>
@@ -82,7 +83,9 @@ class StockInfo extends Component {
         }
 
         <Link to='/'>
-          <span>Back</span>
+          <div className='back'>
+            <span>Back</span>
+          </div>
         </Link>
       </div>
     )

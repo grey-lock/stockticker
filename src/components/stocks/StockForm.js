@@ -1,66 +1,56 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
-
-class StockForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state  = {
-      symbol: '',
-      placeholder: 'Enter A Symbol',
-    }
+// if the user removes a stock from their list, this component renders in its place
+class StockIconForm extends Component {
+  state = {
+    symbol: '',
+    placeholder: 'Enter Symbol'
   }
 
-  // Uppercase the input
-  handleOnChange = e => {
+  // input change method for input field
+  handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value.toUpperCase()
     })
   }
 
-  
-  handleOnSubmit = async e => {
-    e.preventDefault()
-
-    const { idx } = this.props
-    const { symbol } = this.state
+  // tests that an submitted symbol exists before updating stocks list
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const { index } = this.props;
+    const { symbol } = this.state;
 
     try {
-      const resp = await axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/logo`);
-      resp && this.props.updateStocks(idx, symbol)
-    }
-
-    catch(error) {
+      const res = await axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/logo`);
+      res && this.props.updateStocks(index, symbol)
+    } 
+    catch(err) {
       this.setState({
         symbol: '',
-        placeholder: 'Invalid entry',
+        placeholder: 'BAD SYMBOL'
       })
-      setTimeout( () => {
+      setTimeout(() => {
         this.setState({
-          placeholder: 'Enter a Symbol'
+          placeholder: 'Enter Symbol'
         })
-      }, 1000)
+      }, 1000);
     }
+    
   }
 
   render() {
-    const { symbol, placeholder } = this.state
+    const { symbol, placeholder } = this.state;
 
     return (
-      <div className='stock-form'>
-        <form onSubmit={this.handleOnSubmit}>
-          <input 
-            onChange={this.handleOnChange}
-            value={symbol}
-            placeholder={placeholder}
-            name='symbol'
-            maxLength='5'/>
-          <button onClick={this.handleOnSubmit}/>
+      <div className='stock-icon-form'>
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleInputChange} placeholder={placeholder} value={symbol} name='symbol' maxLength='5'/>
+          <button onClick={this.handleSubmit}>OK</button>
         </form>
       </div>
     )
   }
 }
 
-export default StockForm
+export default StockIconForm;

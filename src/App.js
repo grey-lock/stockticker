@@ -8,12 +8,16 @@ import StockList from './components/stocks/StockList'
 import StockInfo from './components/stocks/info/StockInfo'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
 
-    this.state = {
+    state = {
       stocks: ['NVDA', 'TSLA', 'SPOT', 'CSCO', 'AAPL'],
       stocksData: {},
+    }
+
+  componentWillMount() {
+    if(localStorage.getItem('stocks')) {
+      let stocks = JSON.parse(localStorage.getItem('stocks'));
+      this.setState({ stocks })
     }
   }
 
@@ -32,19 +36,33 @@ class App extends Component {
     })
   }
 
+  updateStocks = (idx, symbol) => {
+    let updatedStocks = [...this.state.stocks]
+    updatedStocks[idx] = symbol
+
+    this.setState({
+      stocks: updatedStocks,
+    })
+
+    localStorage.setItem('stocks', JSON.stringify(updatedStocks))
+    this.fetchStocksData()
+
+  }
+
   render() {
     const { stocks, stocksData } = this.state
 
     return (
       <div className="App">
        <Header />
-        <main className='main-content'>
+        <main>
           <Switch>
             <Route exact path='/' 
               render={ () => (
                 <StockList 
                   stocks={stocks} 
                   stocksData={stocksData}
+                  updateStocks={this.updateStocks}
                 />
               )}
             />

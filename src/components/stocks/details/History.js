@@ -4,9 +4,9 @@ const History = ({ data }) => {
   const { label, close, high, low } = data
 
   return (
-    <div className='history'>
-      <h2 className='history-label'>{label}</h2>
-      <h3 className='closing-price'>${close.toFixed(2)}</h3>
+    <div className='history-icon'>
+      <b className='history-icon-label'>{label}</b>
+      <b className='closing-price'>${close.toFixed(2)}</b>
 
       <div className='prices'>
         <p style={{color: 'green'}}><i className="fa fa-chevron-up"></i>High: {high.toFixed(2)}</p>

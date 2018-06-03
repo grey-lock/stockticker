@@ -9,7 +9,7 @@ class StockInfo extends Component {
     const { stockData } = this.props
 
     if (stockData) {
-      return stockData.chart.slice(-10).reverse().map( (data, idx) => {
+      return stockData.chart.slice(-5).reverse().map( (data, idx) => {
         return <History 
                   key={idx} 
                   data={data} 
@@ -52,7 +52,7 @@ class StockInfo extends Component {
 
               <h3>${latestPrice.toFixed(2)}</h3>
 
-              <p style={{color: change === 0 ? '#3C455C' : change > 0 ? 'green' : 'red'}}>
+              <p style={{color: change === 0 ? 'green' : change > 0 ? 'green' : 'red'}}>
                 <span>{change.toFixed(2)} </span>
                 <span>
                   {change > 0 ? <i className="fas fa-caret-up"></i> : <i className="fas fa-caret-down"></i>}
@@ -66,7 +66,7 @@ class StockInfo extends Component {
         <div className='stock-info-data'>
           
           <div className='history'>
-            <h3><i className="far fa-calendar-alt"></i> 10-Day Chart</h3>
+            <h3><i className="far fa-calendar-alt"></i> 5-Day Chart</h3>
             {this.fetchHistory()}
           </div>
 

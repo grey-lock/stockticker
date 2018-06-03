@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Route, Switch } from 'react-router-dom'
 
 import Header from './components/Header'
-// import Footer from './components/Footer'
+import Footer from './components/Footer'
 import StockList from './components/stocks/StockList'
 import StockInfo from './components/stocks/info/StockInfo'
 
@@ -54,6 +54,7 @@ class App extends Component {
             />
           </Switch>
         </main>
+        <Footer />
       </div>
     );
   }

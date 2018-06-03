@@ -9,8 +9,11 @@ const StockItem = ({ symbol, stockData}) => {
         <h3>{symbol}</h3>
         {stockData ?
           <div className='stock-item-data'>
+            <img src={stockData.logo.url} alt='stock-logo'/>
             <p>{stockData.quote.companyName}</p>
             <p>${stockData.quote.latestPrice}</p>
+            <p>{stockData.quote.primaryExchange}</p>
+            <p>{stockData.quote.changePercent * 100}</p>
           </div>
           :
           <div className='stock-item-data'>

@@ -1,9 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = props => {
-  <header>
-    <h1>TICKR</h1>
-  </header>
+  return (
+    <header>
+      <Link to='/'>
+        <h1>TICKR</h1>
+      </Link>
+   </header>
+  )
 }
 
 

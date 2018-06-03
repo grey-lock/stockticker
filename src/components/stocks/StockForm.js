@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import SimpleInput from '../../../../fullstack-react/advanced-components/components-cookbook/src/components/Refs/SimpleInput'
+
 
 class StockForm extends Component {
   constructor(props) {
@@ -62,3 +62,5 @@ class StockForm extends Component {
     )
   }
 }
+
+export default StockForm

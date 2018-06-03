@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
 import StockItem from './StockItem'
+import StockForm from './StockForm'
 
 class StockList extends Component {
 
   renderStockList = () => {
     return this.props.stocks.map( (symbol, idx) => {
-      return <StockItem 
-                key={idx} 
-                symbol={symbol} 
-                stockData={this.props.stocksData[symbol]} 
-              />
+      if (symbol !== null) {
+        return <StockItem 
+                  key={idx} 
+                  symbol={symbol} 
+                  stockData={this.props.stocksData[symbol]} 
+                />
+      }
+      else {
+        return <StockForm 
+                  key={idx} 
+                  index={idx}
+                />
+      }
     })
   }
 
@@ -18,7 +27,6 @@ class StockList extends Component {
     return (
       <div className='stock-wrapper'>
         <div className='stock-list'>
-          <p>Stock List</p>
           {this.renderStockList()}
         </div>
       </div>

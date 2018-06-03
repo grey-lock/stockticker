@@ -39,17 +39,23 @@ class App extends Component {
     return (
       <div className="App">
        <Header />
-        <main className='main'>
+        <main className='main-content'>
           <Switch>
             <Route exact path='/' 
               render={ () => (
-                <StockList stocks={stocks} stocksData={stocksData}/>
+                <StockList 
+                  stocks={stocks} 
+                  stocksData={stocksData}
+                />
               )}
             />
 
             <Route exact path='/:symbol' 
               render={ props => (
-                <StockInfo symbol={props.match.params.symbol} stockData={stocksData[props.match.params.symbol]}/>
+                <StockInfo 
+                  symbol={props.match.params.symbol} 
+                  stockData={stocksData[props.match.params.symbol]}
+                />
               )}
             />
           </Switch>

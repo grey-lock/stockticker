@@ -16,9 +16,11 @@ class StockList extends Component {
 
   render() {
     return (
-      <div className='stock-list'>
-        <p>Stock List</p>
-        {this.renderStockList()}
+      <div className='stock-wrapper'>
+        <div className='stock-list'>
+          <p>Stock List</p>
+          {this.renderStockList()}
+        </div>
       </div>
     )
   }

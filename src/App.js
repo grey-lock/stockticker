@@ -13,12 +13,27 @@ class App extends Component {
     super(props)
 
     this.state = {
-      stocks: ['GOOG', 'TSLA', 'SPOT', 'FB', 'AAPL']
+      stocks: ['GOOG', 'TSLA', 'SPOT', 'FB', 'AAPL'],
+      stocksData: {},
     }
   }
 
-  render() {
+  componentDidMount() {
+
+  }
+
+  fetchStocksData = async () => {
     const { stocks } = this.state
+
+    const resp = await axios.get(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}&types=quote,news,logo,chart`)
+
+    this.setState({
+      stocksData: resp.data
+    })
+  }
+
+  render() {
+    const { stocks, stocksData } = this.state
 
     return (
       <div className="App">
@@ -27,13 +42,13 @@ class App extends Component {
           <Switch>
             <Route exact path='/' 
               render={ () => (
-                <StockList stocks={stocks} />
+                <StockList stocks={stocks} stocksData={stocksData}/>
               )}
             />
 
             <Route exact path='/:symbol' 
               render={ props => (
-                <StockInfo symbol={props.match.params.symbol} />
+                <StockInfo symbol={props.match.params.symbol} stockData={stocksData[props.match.params.symbol]}/>
               )}
             />
           </Switch>

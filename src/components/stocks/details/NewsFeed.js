@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 
 const NewsFeed = ({ article }) => {
-  const { url, headline, source, datetime, source } = article
+  const { url, headline, summary, datetime, source } = article
   let timeFromNow = moment(datetime).fromNow()
 
   return (

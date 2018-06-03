@@ -18,4 +18,4 @@ const History = ({ data }) => {
 
 }
 
-export default HistoryItem
+export default History

@@ -6,8 +6,8 @@ const StockItem = ({ symbol, stockData}) => {
     <div className='stock-item-wrapper'>
       <Link to={`/${symbol}`}>
       <div className='stock-item'>
-        <h3>{symbol}</h3>
-        {stockData ?
+        <h2>{symbol}</h2>
+        { stockData ?
           <div className='stock-item-data'>
             <img src={stockData.logo.url} alt='stock-logo'/>
             <p>{stockData.quote.companyName}</p>

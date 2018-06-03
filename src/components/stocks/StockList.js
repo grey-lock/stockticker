@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-
-//import StockItem
-// Will need a basic form to enter requested stock
+import StockItem from './StockItem'
 
 class StockList extends Component {
 
   renderStockList = () => {
     return this.props.stocks.map( (symbol, idx) => {
-      return <p key={idx}>{symbol}</p> //This will be stockitem component
+      return <StockItem 
+                key={idx} 
+                symbol={symbol} 
+                stockData={this.props.stocksData[symbol]} 
+              />
     })
   }
 
@@ -16,7 +18,7 @@ class StockList extends Component {
     return (
       <div className='stock-list'>
         <p>Stock List</p>
-        {/*this.renderStockList()*/}
+        {this.renderStockList()}
       </div>
     )
   }

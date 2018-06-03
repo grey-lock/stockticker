@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const StockItem = ({ symbol, stockData}) => {
   return (
     <div className='stock-item-wrapper'>
-      <Link to={`$/{symbol}`}>
+      <Link to={`/${symbol}`}>
       <div className='stock-item'>
         <h3>{symbol}</h3>
         {stockData ?
@@ -22,3 +22,5 @@ const StockItem = ({ symbol, stockData}) => {
     </div>
   )
 }
+
+export default StockItem

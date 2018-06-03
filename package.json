@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/react-fontawesome": "0.0.20",
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "highcharts": "^6.1.0",

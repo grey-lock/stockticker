@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import StockList from './components/stocks/StockList'
 import StockInfo from './components/stocks/info/StockInfo'
+// import Chart from './components/Chart'
 
 class App extends Component {
 
@@ -55,6 +56,7 @@ class App extends Component {
     return (
       <div className="App">
        <Header />
+       {/* <Chart /> */}
         <main>
           <Switch>
             <Route exact path='/' 

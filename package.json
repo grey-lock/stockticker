@@ -1,9 +1,11 @@
 {
-  "name": "stcktckr",
+  "name": "stockticker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.4",
     "highcharts": "^6.1.0",
     "moment": "^2.22.2",
     "react": "^16.4.0",
@@ -16,7 +18,8 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.10.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -5,7 +5,7 @@ const Header = props => {
   return (
     <header>
       <Link to='/'>
-        <h1>STCKTCKR</h1>
+        <h1>STOCKTICKER</h1>
       </Link>
    </header>
   )

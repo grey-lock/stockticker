@@ -50,7 +50,6 @@ class StockInfo extends Component {
 
           {stockData && 
             <div className='current'>
-
               <h3>${latestPrice.toFixed(2)}</h3>
 
               <p style={{color: change === 0 ? 'green' : change > 0 ? 'green' : 'red'}}>
